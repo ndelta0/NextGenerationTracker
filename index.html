@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/global.css" />
+    <script>
+      window.jQuery = window.$ = require("jquery");
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.css"
+    />
+  </head>
+  <body>
+    <div class="d-flex justify-content-center">
+      <img
+        src="images/loading.gif"
+        alt="Loading"
+        class="mx-auto"
+        style="margin-top: 40vh; position: absolute; z-index: 1000;"
+        id="loadingAnimImg"
+      />
+    </div>
+    <div
+      id="slideshow"
+      class="carousel slide"
+      data-ride="carousel"
+      data-pause="false"
+      data-keyboard="false"
+    >
+      <div class="carousel-inner" id="carouselData">
+        <div class="row" id="accountForms">
+          <div class="col-md-3 col-sm-2 col-xs-12"></div>
+          <div class="col-md-6 col-sm-8 col-xs-12">
+            <form
+              action="#"
+              method="post"
+              id="loginForm"
+              class="indexForm"
+              style="display: none;"
+            >
+              <div class="form-group">
+                <label for="loginInput">Email/Username:</label>
+                <input
+                  type="text"
+                  class="form-control loginFormInput"
+                  id="loginInput"
+                />
+              </div>
+              <div class="form-group">
+                <label for="passwordInput">Password:</label>
+                <input
+                  type="password"
+                  class="form-control loginFormInput"
+                  id="passwordInput"
+                />
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  name="rememberMe"
+                  id="rememberMeCheckbox"
+                  class="custom-control-input"
+                />
+                <label for="rememberMeCheckbox" class="custom-control-label">
+                  Remember Me
+                </label>
+              </div>
+              <div class="btn-group btn-block">
+                <button
+                  type="button"
+                  class="btn btn-success btn-block"
+                  style="margin-top: 15px;"
+                  id="loginBtn"
+                >
+                  <span
+                    class="spinner-border spinner-border-sm"
+                    style="display: none;"
+                    id="loginSpinner"
+                  ></span>
+                  Login
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-info btn-block"
+                  style="margin-top: 15px;"
+                  id="changeToRegisterBtn"
+                >
+                  Don't have an account?
+                </button>
+              </div>
+              <span class="text-danger" id="loginFormErrorText"></span>
+            </form>
+
+            <form
+              action="#"
+              method="post"
+              id="registerForm"
+              class="indexForm"
+              style="display: none;"
+            >
+              <div class="form-group">
+                <label for="usernameInput">Username:</label>
+                <input
+                  type="text"
+                  class="form-control registerFormInput"
+                  id="usernameInput"
+                />
+              </div>
+              <div class="form-group">
+                <label for="emailInput">Email:</label>
+                <input
+                  type="email"
+                  class="form-control registerFormInput"
+                  id="emailInput"
+                />
+              </div>
+              <div class="form-group">
+                <label for="passwordInput">Password:</label>
+                <input
+                  type="password"
+                  class="form-control registerFormInput"
+                  id="registerPasswordInput"
+                />
+                <label for="confirmPasswordInput">Confirm password:</label>
+                <input
+                  type="password"
+                  class="form-control registerFormInput"
+                  id="confirmPasswordInput"
+                />
+              </div>
+              <div class="btn-group btn-block">
+                <button
+                  type="button"
+                  class="btn btn-success btn-block"
+                  style="margin-top: 15px;"
+                  id="registerBtn"
+                >
+                  <span
+                    class="spinner-border spinner-border-sm"
+                    style="display: none;"
+                    id="registerSpinner"
+                  ></span>
+                  Register
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-info btn-block"
+                  style="margin-top: 15px;"
+                  id="changeToLoginBtn"
+                >
+                  Already have an account?
+                </button>
+              </div>
+              <span class="text-danger" id="registerFormErrorText"></span>
+            </form>
+          </div>
+          <div class="col-md-3 col-sm-2 col-xs-12"></div>
+        </div>
+
+        <div id="mainBody" class="container" style="display: none;">
+          <!-- SDK Connection Icon -->
+          <div style="position: absolute; top: 10px; left: 10px;">
+            <i
+              class="fas fa-satellite-dish"
+              style="color: red; font-size: 3vh;"
+              id="sdkConnectionIcon"
+            ></i>
+          </div>
+          <div
+            style="position: absolute; top: 10px; right: 10px;"
+            id="logoutIcon"
+          >
+            <i class="fas fa-sign-out-alt" style="font-size: 3vh;"></i>
+          </div>
+
+          <!-- Overview section -->
+          <section id="overview">
+            <!-- Section title -->
+            <div class="row">
+              <h3 class="mx-auto">Overview</h3>
+            </div>
+            <hr />
+            <!-- User -->
+            <div class="row">
+              <div class="col-4">
+                <img
+                  src="images/default_avatar.png"
+                  alt="User profile picture"
+                  style="height: 100px; width: auto;"
+                  class="float-right"
+                  id="userAvatar"
+                />
+              </div>
+              <div class="col-8">
+                <b><span id="usernameSpan">Username</span></b>
+              </div>
+            </div>
+            <hr />
+            <!-- User statistics -->
+            <div class="row text-center">
+              <div class="col col-4">
+                Jobs completed: <span id="jobsCompletedSpan">-</span>
+              </div>
+              <div class="col col-4">
+                Total mass transported:
+                <span id="totalMassTransportedSpan">-</span>kg
+              </div>
+              <div class="col col-4">
+                Top speed: <span id="topSpeedSpan">-</span>m/s
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col col-4">
+                Jobs cancelled: <span id="jobsCancelledSpan">-</span>
+              </div>
+              <div class="col col-4">
+                Total money earned: <span id="totalMoneyEarnedSpan">-</span>€
+              </div>
+              <div class="col col-4">
+                Total distance: <span id="totalDistanceSpan">-</span>km
+              </div>
+            </div>
+          </section>
+
+          <!-- <section></section> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Load renderer.js script -->
+    <script>
+      require("./renderer.js");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "name": "NextGenerationTracker",
+  "version": "0.1.0",
+  "description": "Application tracking players' ETS 2 and ATS statuses",
+  "main": "main.js",
+  "author": "D3LT4",
+  "keywords": [
+    "ETS2",
+    "ATS",
+    "NGT",
+    "SCS"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "bootstrap": "^4.4.1",
+    "electron-is-dev": "^1.2.0",
+    "jquery": "^3.5.0",
+    "node-fetch": "^2.6.0",
+    "popper.js": "^1.16.1",
+    "trucksim-telemetry": "^0.7.0"
+  },
+  "devDependencies": {
+    "electron": "^8.2.4",
+    "electron-builder": "^22.5.1",
+    "electron-rebuild": "^1.10.1"
+  },
+  "build": {
+    "appId": "next-generation-tracker-v1",
+    "win": {
+      "target": "NSIS",
+      "icon": "images/logo.ico"
+    },
+    "nsisWeb": {
+      "oneClick": false
+    },
+    "nsis": {
+      "oneClick": false
+    }
+  }
+}
