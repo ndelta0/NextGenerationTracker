@@ -388,6 +388,21 @@ async function main() {
     initAccountActionBtns();
     readConfig();
 
+    ipcRenderer.on("update_available", () => {
+      ipcRenderer.removeAllListeners("update_available");
+      $("#updateToast").toast("show");
+    });
+
+    ipcRenderer.on("update_downloaded", () => {
+      ipcRenderer.removeAllListeners("update_downloaded");
+      $("#restartAndUpdateBtn").removeAttr("disabled");
+      $("#restartAndUpdateBtn").html("Restart now");
+    });
+
+    $("#restartAndUpdateBtn").on("click", () => {
+      ipcRenderer.send("restart_app");
+    });
+
     $(".loginFormInput").keypress(function (e) {
       if (e.which == 13) {
         $("#loginBtn").click();

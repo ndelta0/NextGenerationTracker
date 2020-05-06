@@ -2,6 +2,7 @@ async function main() {
   // Modules to control application life and create native browser window
   const { app, BrowserWindow, ipcMain } = require("electron");
   const isDevelopment = require("electron-is-dev");
+  const { autoUpdater } = require("electron-updater");
 
   async function createMainWindow() {
     // Create the browser window.
@@ -64,6 +65,17 @@ async function main() {
   // keep the mainWindow reference
   const mainWindow = await mainWindowPromise;
 
+  mainWindow.once("ready-to-show", () => {
+    autoUpdater.checkForUpdatesAndNotify();
+  });
+
+  autoUpdater.on("update-available", () => {
+    mainWindow.webContents.send("update_available");
+  });
+  autoUpdater.on("update-downloaded", () => {
+    mainWindow.webContents.send("update_downloaded");
+  });
+
   // notify the Renderer that Main is ready
   mainWindow.webContents.send("mainReady");
 
@@ -78,6 +90,10 @@ async function main() {
   ipcMain.once("restart", () => {
     app.relaunch();
     app.exit();
+  });
+
+  ipcMain.on("restart_app", () => {
+    autoUpdater.quitAndInstall();
   });
 
   // awaiting terminationPromise here keeps the mainWindow object alive

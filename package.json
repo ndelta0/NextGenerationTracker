@@ -1,6 +1,6 @@
 {
   "name": "NextGenerationTracker",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Application tracking players' ETS 2 and ATS statuses",
   "main": "main.js",
   "author": "D3LT4",
@@ -10,6 +10,10 @@
     "NGT",
     "SCS"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/March3wQa/NextGenerationTracker"
+  },
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
@@ -19,15 +23,16 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "bootstrap": "^4.4.1",
-    "electron-is-dev": "^1.2.0",
-    "jquery": "^3.5.0",
+    "electron-updater": "^4.3.1",
+    "jquery": "^3.5.1",
     "node-fetch": "^2.6.0",
     "popper.js": "^1.16.1",
     "trucksim-telemetry": "^0.7.0"
   },
   "devDependencies": {
-    "electron": "^8.2.4",
-    "electron-builder": "^22.5.1",
+    "electron": "^8.2.5",
+    "electron-builder": "^22.6.0",
+    "electron-is-dev": "^1.2.0",
     "electron-rebuild": "^1.10.1"
   },
   "build": {

@@ -177,6 +177,33 @@
               style="color: red; font-size: 3vh;"
               id="sdkConnectionIcon"
             ></i>
+            <div
+              id="updateToast"
+              class="toast"
+              data-autohide="false"
+              style="width: fit-content;"
+            >
+              <div class="toast-header">
+                <strong class="mr-auto text-primary">Update available</strong>
+                <button
+                  type="button"
+                  class="ml-2 mb-1 close"
+                  data-dismiss="toast"
+                >
+                  &times;
+                </button>
+              </div>
+              <div class="toast-body">
+                <button
+                  class="btn btn-block btn-primary"
+                  id="restartAndUpdateBtn"
+                  disabled
+                >
+                  <div class="spinner-grow spinner-grow-sm" id="toastSpinnerGrow"></div>
+                  Downloading...
+                </button>
+              </div>
+            </div>
           </div>
           <div
             style="position: absolute; top: 10px; right: 10px;"
