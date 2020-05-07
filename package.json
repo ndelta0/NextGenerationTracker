@@ -1,6 +1,6 @@
 {
   "name": "NextGenerationTracker",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Application tracking players' ETS 2 and ATS statuses",
   "main": "main.js",
   "author": "D3LT4",

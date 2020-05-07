@@ -15,7 +15,7 @@ async function main() {
       },
       minWidth: 800,
       minHeight: 600,
-      icon: "images/logo.ico"
+      icon: "images/logo.ico",
     });
 
     await new Promise((resolve, reject) => {
@@ -65,8 +65,12 @@ async function main() {
   // keep the mainWindow reference
   const mainWindow = await mainWindowPromise;
 
-  mainWindow.once("ready-to-show", () => {
-    autoUpdater.checkForUpdatesAndNotify();
+  autoUpdater.on("error", error => {
+    console.error(error);
+  });
+
+  autoUpdater.checkForUpdatesAndNotify().catch((reason) => {
+    throw new Error(reason);
   });
 
   autoUpdater.on("update-available", () => {

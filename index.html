@@ -40,228 +40,258 @@
       data-keyboard="false"
     >
       <div class="carousel-inner" id="carouselData">
-        <div class="row" id="accountForms">
-          <div class="col-md-3 col-sm-2 col-xs-12"></div>
-          <div class="col-md-6 col-sm-8 col-xs-12">
-            <form
-              action="#"
-              method="post"
-              id="loginForm"
-              class="indexForm"
-              style="display: none;"
-            >
-              <div class="form-group">
-                <label for="loginInput">Email/Username:</label>
-                <input
-                  type="text"
-                  class="form-control loginFormInput"
-                  id="loginInput"
-                />
-              </div>
-              <div class="form-group">
-                <label for="passwordInput">Password:</label>
-                <input
-                  type="password"
-                  class="form-control loginFormInput"
-                  id="passwordInput"
-                />
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input
-                  type="checkbox"
-                  name="rememberMe"
-                  id="rememberMeCheckbox"
-                  class="custom-control-input"
-                />
-                <label for="rememberMeCheckbox" class="custom-control-label">
-                  Remember Me
-                </label>
-              </div>
-              <div class="btn-group btn-block">
-                <button
-                  type="button"
-                  class="btn btn-success btn-block"
-                  style="margin-top: 15px;"
-                  id="loginBtn"
-                >
-                  <span
-                    class="spinner-border spinner-border-sm"
-                    style="display: none;"
-                    id="loginSpinner"
-                  ></span>
-                  Login
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-info btn-block"
-                  style="margin-top: 15px;"
-                  id="changeToRegisterBtn"
-                >
-                  Don't have an account?
-                </button>
-              </div>
-              <span class="text-danger" id="loginFormErrorText"></span>
-            </form>
+        <div class="contentWrapper">
+          <div class="row" id="accountForms">
+            <div class="col-md-3 col-sm-2 col-xs-12"></div>
+            <div class="col-md-6 col-sm-8 col-xs-12">
+              <form
+                action="#"
+                method="post"
+                id="loginForm"
+                class="indexForm"
+                style="display: none;"
+              >
+                <div class="form-group">
+                  <label for="loginInput">Email/Username:</label>
+                  <input
+                    type="text"
+                    class="form-control loginFormInput"
+                    id="loginInput"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="passwordInput">Password:</label>
+                  <input
+                    type="password"
+                    class="form-control loginFormInput"
+                    id="passwordInput"
+                  />
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    name="rememberMe"
+                    id="rememberMeCheckbox"
+                    class="custom-control-input"
+                  />
+                  <label for="rememberMeCheckbox" class="custom-control-label">
+                    Remember Me
+                  </label>
+                </div>
+                <div class="btn-group btn-block">
+                  <button
+                    type="button"
+                    class="btn btn-success btn-block"
+                    style="margin-top: 15px;"
+                    id="loginBtn"
+                  >
+                    <span
+                      class="spinner-border spinner-border-sm"
+                      style="display: none;"
+                      id="loginSpinner"
+                    ></span>
+                    Login
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-info btn-block"
+                    style="margin-top: 15px;"
+                    id="changeToRegisterBtn"
+                  >
+                    Don't have an account?
+                  </button>
+                </div>
+                <span class="text-danger" id="loginFormErrorText"></span>
+              </form>
 
-            <form
-              action="#"
-              method="post"
-              id="registerForm"
-              class="indexForm"
-              style="display: none;"
-            >
-              <div class="form-group">
-                <label for="usernameInput">Username:</label>
-                <input
-                  type="text"
-                  class="form-control registerFormInput"
-                  id="usernameInput"
-                />
-              </div>
-              <div class="form-group">
-                <label for="emailInput">Email:</label>
-                <input
-                  type="email"
-                  class="form-control registerFormInput"
-                  id="emailInput"
-                />
-              </div>
-              <div class="form-group">
-                <label for="passwordInput">Password:</label>
-                <input
-                  type="password"
-                  class="form-control registerFormInput"
-                  id="registerPasswordInput"
-                />
-                <label for="confirmPasswordInput">Confirm password:</label>
-                <input
-                  type="password"
-                  class="form-control registerFormInput"
-                  id="confirmPasswordInput"
-                />
-              </div>
-              <div class="btn-group btn-block">
-                <button
-                  type="button"
-                  class="btn btn-success btn-block"
-                  style="margin-top: 15px;"
-                  id="registerBtn"
-                >
-                  <span
-                    class="spinner-border spinner-border-sm"
-                    style="display: none;"
-                    id="registerSpinner"
-                  ></span>
-                  Register
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-info btn-block"
-                  style="margin-top: 15px;"
-                  id="changeToLoginBtn"
-                >
-                  Already have an account?
-                </button>
-              </div>
-              <span class="text-danger" id="registerFormErrorText"></span>
-            </form>
+              <form
+                action="#"
+                method="post"
+                id="registerForm"
+                class="indexForm"
+                style="display: none;"
+              >
+                <div class="form-group">
+                  <label for="usernameInput">Username:</label>
+                  <input
+                    type="text"
+                    class="form-control registerFormInput"
+                    id="usernameInput"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="emailInput">Email:</label>
+                  <input
+                    type="email"
+                    class="form-control registerFormInput"
+                    id="emailInput"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="passwordInput">Password:</label>
+                  <input
+                    type="password"
+                    class="form-control registerFormInput"
+                    id="registerPasswordInput"
+                  />
+                  <label for="confirmPasswordInput">Confirm password:</label>
+                  <input
+                    type="password"
+                    class="form-control registerFormInput"
+                    id="confirmPasswordInput"
+                  />
+                </div>
+                <div class="btn-group btn-block">
+                  <button
+                    type="button"
+                    class="btn btn-success btn-block"
+                    style="margin-top: 15px;"
+                    id="registerBtn"
+                  >
+                    <span
+                      class="spinner-border spinner-border-sm"
+                      style="display: none;"
+                      id="registerSpinner"
+                    ></span>
+                    Register
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-info btn-block"
+                    style="margin-top: 15px;"
+                    id="changeToLoginBtn"
+                  >
+                    Already have an account?
+                  </button>
+                </div>
+                <span class="text-danger" id="registerFormErrorText"></span>
+              </form>
+            </div>
+            <div class="col-md-3 col-sm-2 col-xs-12"></div>
           </div>
-          <div class="col-md-3 col-sm-2 col-xs-12"></div>
-        </div>
 
-        <div id="mainBody" class="container" style="display: none;">
-          <!-- SDK Connection Icon -->
-          <div style="position: absolute; top: 10px; left: 10px;">
-            <i
-              class="fas fa-satellite-dish"
-              style="color: red; font-size: 3vh;"
-              id="sdkConnectionIcon"
-            ></i>
+          <div id="mainBody" class="container" style="display: none;">
+            <!-- SDK Connection Icon -->
+            <div style="position: absolute; top: 10px; left: 10px;">
+              <i
+                class="fas fa-satellite-dish"
+                style="color: red; font-size: 3vh;"
+                id="sdkConnectionIcon"
+              ></i>
+              <div
+                id="updateToast"
+                class="toast"
+                data-autohide="false"
+                style="width: fit-content;"
+              >
+                <div class="toast-header">
+                  <strong class="mr-auto text-primary">Update available</strong>
+                  <button
+                    type="button"
+                    class="ml-2 mb-1 close"
+                    data-dismiss="toast"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <div class="toast-body">
+                  <button
+                    class="btn btn-block btn-primary"
+                    id="restartAndUpdateBtn"
+                    disabled
+                  >
+                    <div
+                      class="spinner-grow spinner-grow-sm"
+                      id="toastSpinnerGrow"
+                    ></div>
+                    Downloading...
+                  </button>
+                </div>
+              </div>
+            </div>
             <div
-              id="updateToast"
-              class="toast"
-              data-autohide="false"
-              style="width: fit-content;"
+              style="position: absolute; top: 10px; right: 10px;"
+              id="logoutIcon"
             >
-              <div class="toast-header">
-                <strong class="mr-auto text-primary">Update available</strong>
-                <button
-                  type="button"
-                  class="ml-2 mb-1 close"
-                  data-dismiss="toast"
-                >
-                  &times;
-                </button>
-              </div>
-              <div class="toast-body">
-                <button
-                  class="btn btn-block btn-primary"
-                  id="restartAndUpdateBtn"
-                  disabled
-                >
-                  <div class="spinner-grow spinner-grow-sm" id="toastSpinnerGrow"></div>
-                  Downloading...
-                </button>
-              </div>
+              <i class="fas fa-sign-out-alt" style="font-size: 3vh;"></i>
             </div>
-          </div>
-          <div
-            style="position: absolute; top: 10px; right: 10px;"
-            id="logoutIcon"
-          >
-            <i class="fas fa-sign-out-alt" style="font-size: 3vh;"></i>
-          </div>
 
-          <!-- Overview section -->
-          <section id="overview">
-            <!-- Section title -->
-            <div class="row">
-              <h3 class="mx-auto">Overview</h3>
-            </div>
-            <hr />
-            <!-- User -->
-            <div class="row">
-              <div class="col-4">
-                <img
-                  src="images/default_avatar.png"
-                  alt="User profile picture"
-                  style="height: 100px; width: auto;"
-                  class="float-right"
-                  id="userAvatar"
-                />
+            <!-- Overview section -->
+            <section id="overview">
+              <!-- Section title -->
+              <div class="row">
+                <h3 class="mx-auto">Overview</h3>
               </div>
-              <div class="col-8">
-                <b><span id="usernameSpan">Username</span></b>
+              <hr />
+              <!-- User -->
+              <div class="row">
+                <div class="col-4">
+                  <img
+                    src="images/default_avatar.png"
+                    alt="User profile picture"
+                    style="height: 100px; width: auto;"
+                    class="float-right"
+                    id="userAvatar"
+                  />
+                </div>
+                <div class="col-8">
+                  <b><span id="usernameSpan">Username</span></b>
+                </div>
               </div>
-            </div>
-            <hr />
-            <!-- User statistics -->
-            <div class="row text-center">
-              <div class="col col-4">
-                Jobs completed: <span id="jobsCompletedSpan">-</span>
+              <hr />
+              <!-- User statistics -->
+              <div class="row text-center">
+                <div class="col col-4">
+                  Jobs completed: <span id="jobsCompletedSpan">-</span>
+                </div>
+                <div class="col col-4">
+                  Total mass transported:
+                  <span id="totalMassTransportedSpan">-</span>kg
+                </div>
+                <div class="col col-4">
+                  Top speed: <span id="topSpeedSpan">-</span>m/s
+                </div>
               </div>
-              <div class="col col-4">
-                Total mass transported:
-                <span id="totalMassTransportedSpan">-</span>kg
+              <div class="row text-center">
+                <div class="col col-4">
+                  Jobs cancelled: <span id="jobsCancelledSpan">-</span>
+                </div>
+                <div class="col col-4">
+                  Total money earned: <span id="totalMoneyEarnedSpan">-</span>€
+                </div>
+                <div class="col col-4">
+                  Total distance: <span id="totalDistanceSpan">-</span>km
+                </div>
               </div>
-              <div class="col col-4">
-                Top speed: <span id="topSpeedSpan">-</span>m/s
-              </div>
-            </div>
-            <div class="row text-center">
-              <div class="col col-4">
-                Jobs cancelled: <span id="jobsCancelledSpan">-</span>
-              </div>
-              <div class="col col-4">
-                Total money earned: <span id="totalMoneyEarnedSpan">-</span>€
-              </div>
-              <div class="col col-4">
-                Total distance: <span id="totalDistanceSpan">-</span>km
-              </div>
-            </div>
-          </section>
+            </section>
 
-          <!-- <section></section> -->
+            <!-- Jobs list section -->
+            <section id="jobs" class="jobList" style="margin-bottom: 25px;">
+              <!-- Section title -->
+              <div class="row">
+                <h3 class="mx-auto">Jobs</h3>
+              </div>
+
+              <!-- Job view -->
+              <div id="jobView">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>User</th>
+                      <th>Status</th>
+                      <th>Game</th>
+                      <th>Source</th>
+                      <th>Destination</th>
+                      <th>Income</th>
+                      <th>Mass</th>
+                      <th>Distance</th>
+                    </tr>
+                  </thead>
+                  <tbody id="jobRows"></tbody>
+                </table>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
     </div>

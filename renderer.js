@@ -105,7 +105,9 @@ function readConfig() {
 function goToDashboard() {
   console.info("goToDashboard");
   $("#accountForms").fadeOut("fast", () => {
-    $("#mainBody").fadeIn("fast");
+    $("#mainBody").fadeIn("fast", () => {
+      downloadJobs();
+    });
   });
 }
 
@@ -356,6 +358,58 @@ function refreshUserData() {
     .catch((err) => console.error(err));
 }
 
+async function toJobRowHtml(job) {
+  let string = "<tr>";
+  
+  let data = await fetch(`${baseUrl}api/users/${job.userId}`).then(res => res.json());
+
+  let username = data.username;
+
+  string += `<td>${username}</td>`;
+
+  if (job.wasFinished) {
+    if (job.isLate) {
+      string += "<td>Finished - Late</td>";
+    } else {
+      string += "<td>Finished - On time</td>";
+    }
+  } else {
+    string += "<td>Cancelled</td>";
+  }
+  if (job.gameId == "ets2") {
+    string += `<td>ETS 2</td>`;
+  } else {
+    string += `<td>ATS</td>`;
+  }
+  string += `<td>${job.sourceCityId}/${job.sourceCompanyId}</td>`;
+  string += `<td>${job.destinationCityId}/${job.destinationCompanyId}</td>`;
+  string += `<td>${job.income}</td>`;
+  string += `<td>${job.mass}</td>`;
+  string += `<td>${job.distanceDriven}</td>`;
+
+  string += "</tr>";
+
+  return string;
+}
+
+async function downloadJobs() {
+  console.info("downloadJobs");
+  let result = await fetch(`${baseUrl}api/jobs`)
+    .then((res) => res.json())
+    .then((data) => {
+      if (data !== undefined) {
+        return data;
+      }
+    })
+    .catch((err) => console.error(err));
+  console.log(result);
+  const tBody = $("#jobRows");
+  for (let i = 0; i < result.length; i++) {
+    const job = result[i];
+    tBody.append(await toJobRowHtml(job));
+  }
+}
+
 async function main() {
   if (isDevelopment) {
     // this is to give Chrome Debugger time to attach to the new window
@@ -434,9 +488,13 @@ async function main() {
     });
     telemetry.game.on("time-change", (current, previous) => {
       data = telemetry.getData();
+      console.log(data.job.deliveryTime.value);
       topSpeed = Math.max(topSpeed, data.truck.speed.value);
       jobData = data.job;
-      if (current.value > data.job.deliveryTime.value) {
+      if (
+        current.value > data.job.deliveryTime.value &&
+        data.job.deliveryTime.value !== 0
+      ) {
         isLate = true;
       }
       gameId = data.game.game.name;

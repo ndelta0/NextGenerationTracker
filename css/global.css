@@ -40,3 +40,27 @@ section {
   padding: 25px;
   margin-top: 25px;
 }
+
+.jobList {
+  max-height: 500px;
+  overflow: auto;
+  height: auto;
+}
+
+.jobList::-webkit-scrollbar {
+  display: none;
+}
+
+.contentWrapper {
+  display: flex;
+  overflow-x: hidden;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+  backface-visibility: hidden;
+  will-change: overflow;
+}
+
+.contentWrapper::-webkit-scrollbar {
+  display: none;
+}
